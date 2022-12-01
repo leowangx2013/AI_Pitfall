@@ -20,9 +20,9 @@ audio_data = sample['data']['shake']['audio'] # audio data, in shape of [1, 10, 
 seismic_data = sample['data']['shake']['seismic'] # seismic data, in shape of [1, 10, 20]
 ```
 
+The file name prefixes in this dataset and their corresponding meta information are listed in the following table:
 
-
-
+![alt text](https://raw.githubusercontent.com/leowangx2013/AI_Pitfall/main/imgs/dataset_info.png)
 
 
 ## For Deepsense (the deep learning model):
