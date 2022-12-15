@@ -8,7 +8,9 @@ We use a vehicle detection application to illustrate this pitfall described in o
 
 ## Dataset
 Our dataset can be found at: 
-[https://uofi.box.com/s/6mwoha5g5148cc4vacojrfouyanyzhhx](https://uofi.box.com/s/6mwoha5g5148cc4vacojrfouyanyzhhx)
+[https://uofi.box.com/s/dramtz5j9mhpmo7yx33qd08we646t2oy](https://uofi.box.com/s/dramtz5j9mhpmo7yx33qd08we646t2oy)
+
+Unzip the file and put it in the root directory of `AI_Pitfall`. `pt_data_mustang_development_milcom_noaug` and `pt_mustang_siebel_10-16` are the development dataset. `pt_data_mustang_deployment_milcom_aug` is the deployment dataset.
 
 Each .pt file contains a 2-second data sample. To load a .pt file in PyTorch, use:
 ```python
@@ -27,14 +29,25 @@ The file name prefixes in this dataset and their corresponding meta information 
 
 ## For Deepsense (the deep learning model):
 
-1. Training
+### Training
+
+Under `AI_Pitfall/deepsense/src`, run:
+
 ```
-python train.py -dataset=DATASET_NAME -train_mode=original -stage=preain_classifier
+python train.py -dataset train -train_mode original -stage pretrain_classifier
 ```
 
-2. Testing
+
+### Testing
+
+Under `AI_Pitfall/deepsense/src`, run:
 ```
-python test.py -dataset=DATASET_NAME -stage=pretrain_classifier -model DeepSense -gpu GPU_ID -model_weight MODEL_WEIGHT_PATH -batch_size BATCH_SIZE
+python test.py -dataset=TEST_DATASET -stage=pretrain_classifier -model DeepSense -gpu 0 -model_weight ../weights/deepsense_best.pt -batch_size 32
+```
+
+For example, to evaluate the trained model on the deployment secenario E:
+```
+python test.py -dataset=test_scene_E -stage=pretrain_classifier -model DeepSense -gpu 0 -model_weight ../weights/deepsense_best.pt -batch_size 32
 ```
 
 ## For simple model:
