@@ -65,12 +65,12 @@ python simplemodel.py --mode=train
 
 Under `AI_Pitfall/simplemodel/src`, run:
 ```
-python simplemodel.py --mode=test --scenario = TEST_DATASET
+python simplemodel.py --mode=test --scenario=TEST_DATASET
 ```
 where TEST_DATASET are different deployment scenarios with different environment and terrain conditions E-F-G.
 
 For example, to evaluate the trained model on the deployment secenario E:
 ```
-python simplemodel.py --mode = test --scenario = TEST_E
+python simplemodel.py --mode=test --scenario=TEST_E
 
 ```
