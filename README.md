@@ -51,3 +51,26 @@ python test.py -dataset=test_scene_E -stage=pretrain_classifier -model DeepSense
 ```
 
 ## For simple model:
+
+### Training
+
+After putting the partitioned data folders to the project directory, run:
+
+```
+python simplemodel.py --mode=train
+```
+
+
+### Testing
+
+Under `AI_Pitfall/simplemodel/src`, run:
+```
+python simplemodel.py --mode=test --scenario = TEST_DATASET
+```
+where TEST_DATASET are different deployment scenarios with different environment and terrain conditions E-F-G.
+
+For example, to evaluate the trained model on the deployment secenario E:
+```
+python simplemodel.py --mode = test --scenario = TEST_E
+
+```
